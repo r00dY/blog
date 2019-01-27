@@ -32,7 +32,7 @@ export default class MyDocument extends Document {
         return (
             <html>
             <Head>
-                <style>{`body { margin: 0; background-color: lightgrey; }`}</style>
+                <link rel="stylesheet" type="text/css" href="static/normalize.css" />
                 <style type="text/css">{[...css].join('')}</style>
             </Head>
             <body>

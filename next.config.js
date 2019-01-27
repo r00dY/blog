@@ -14,6 +14,9 @@ module.exports = {
                         modules: true,
                         importLoaders: 2
                     }
+                },
+                {
+                    loader: 'postcss-loader'
                 }
             ]
         });
