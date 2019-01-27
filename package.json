@@ -1,0 +1,19 @@
+{
+  "name": "the-layouts-blog",
+  "description": "Blog about layouts in web",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^7.0.2",
+    "npm": "^6.7.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.11",
+    "isomorphic-style-loader": "^4.0.0"
+  }
+}
