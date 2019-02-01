@@ -1,16 +1,19 @@
-import styles from './index.css';
+import Test from '../src/Test/Test';
+import styled from "styled-components";
 
-import withStyles from '../withStyles';
+import { Container } from "../src/Layout/Components";
 
-import Test from '../components/Test/Test';
+const Header = styled.h1`
+    color: red;
+`;
 
 function Index() {
     return (
-        <div>
-            <h1 className={styles.root}>Welcome to next.js!</h1>
+        <Container>
+            <Header>Welcome to next.js!</Header>
             <Test />
-        </div>
+        </Container>
     );
 }
 
-export default withStyles(styles)(Index);
+export default Index;

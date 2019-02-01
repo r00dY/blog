@@ -1,45 +1,24 @@
-import Document, { Head, Main, NextScript } from 'next/document'
-import React from "react";
-import PropTypes from "prop-types";
-
-let css = new Set();
-
-class CSSCollecter extends React.Component {
-    getChildContext() {
-        return {
-            insertCss: (...styles) => styles.forEach(style => css.add(style._getCss()))
-        };
-    }
-
-    render() {
-        return <this.props.component {...this.props.props} />;
-    }
-}
-
-CSSCollecter.childContextTypes = {
-    insertCss: PropTypes.func
-};
+import Document from 'next/document'
+import { ServerStyleSheet } from 'styled-components'
 
 export default class MyDocument extends Document {
+    static async getInitialProps (ctx) {
+        const sheet = new ServerStyleSheet()
+        const originalRenderPage = ctx.renderPage
 
-    static async getInitialProps({renderPage}) {
-        const page = renderPage(App => props => <CSSCollecter component={App} props={props} />);
-        return { ...page };
-    }
+        try {
+            ctx.renderPage = () =>
+                originalRenderPage({
+                    enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
+                })
 
-    render() {
-
-        return (
-            <html>
-            <Head>
-                <link rel="stylesheet" type="text/css" href="static/normalize.css" />
-                <style type="text/css">{[...css].join('')}</style>
-            </Head>
-            <body>
-            <Main />
-            <NextScript />
-            </body>
-            </html>
-        )
+            const initialProps = await Document.getInitialProps(ctx)
+            return {
+                ...initialProps,
+                styles: [...initialProps.styles, ...sheet.getStyleElement()]
+            }
+        } finally {
+            sheet.seal()
+        }
     }
 }
