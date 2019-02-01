@@ -7,7 +7,7 @@ function Index() {
     return (
         <Page>
             <Article>
-                <h1>Why do we need another swiper library?</h1>
+                <h1>What makes a good swiper?</h1>
                 <h2>The problem</h2>
                 <p>There are so many implementations of swipers in Javascript, yet none of them is good enough. There are decent ones but if you look closer, none of them really excellent.</p>
 

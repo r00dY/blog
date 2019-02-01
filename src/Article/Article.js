@@ -4,7 +4,7 @@ import { Container } from "../Layout/Components";
 const Root = styled.div`
     & > * {
         position: relative;
-        max-width: 600px;
+        max-width: 720px;
         width: 100%;
     }
 `;

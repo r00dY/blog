@@ -29,6 +29,7 @@ export default class MyDocument extends Document {
             <Head>
                 <link rel="stylesheet" type="text/css" href="/static/normalize.css"></link>
                 <link rel="stylesheet" type="text/css" href="/static/prism.css"></link>
+                <link rel="stylesheet" type="text/css" href="/static/global.css"></link>
             </Head>
             <body>
             <Navbar />
