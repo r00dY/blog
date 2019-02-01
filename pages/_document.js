@@ -1,5 +1,6 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import Navbar from '../src/Navbar/Navbar';
 
 export default class MyDocument extends Document {
     static async getInitialProps (ctx) {
@@ -29,6 +30,7 @@ export default class MyDocument extends Document {
                 <link rel="stylesheet" type="text/css" href="/static/normalize.css"></link>
             </Head>
             <body>
+            <Navbar />
             <Main />
             <NextScript />
             </body>
