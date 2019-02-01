@@ -3,7 +3,9 @@ import { Container } from "../Layout/Components";
 
 const Root = styled.div`
     & > * {
+        position: relative;
         max-width: 600px;
+        width: 100%;
     }
 `;
 
